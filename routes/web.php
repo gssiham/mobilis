@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\BureauController;
 use App\Http\Controllers\SiegeController;
+use App\Http\Controllers\BarcodeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,8 +14,8 @@ use App\Http\Controllers\SiegeController;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
-|
-*/
+|*/
+//  Route::get('/generateBarcode', [BarcodeController::class, 'generateBarcode']);
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -47,3 +48,4 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/sieges/{id}', [SiegeController::class, 'update'])->name('sieges.update');
     Route::delete('/sieges/{id}', [SiegeController::class, 'destroy'])->name('sieges.destroy');
 });
+Route::get('/generateBarcode',[BarcodeController::class, 'generateBarcode']);
